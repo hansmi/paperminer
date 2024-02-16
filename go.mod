@@ -13,7 +13,7 @@ require (
 	github.com/jonboulle/clockwork v0.4.0
 	github.com/josephburnett/jd v1.7.1
 	github.com/prometheus/client_golang v1.18.0
-	github.com/prometheus/common v0.45.0
+	github.com/prometheus/common v0.47.0
 	github.com/sourcegraph/conc v0.3.0
 	github.com/timshannon/bolthold v0.0.0-20231129192944-dca5178aa629
 	go.etcd.io/bbolt v1.3.8
@@ -39,7 +39,6 @@ require (
 	github.com/hashicorp/golang-lru/v2 v2.0.7 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
-	github.com/matttproud/golang_protobuf_extensions/v2 v2.0.0 // indirect
 	github.com/mitchellh/go-wordwrap v1.0.1 // indirect
 	github.com/prometheus/client_model v0.5.0 // indirect
 	github.com/prometheus/procfs v0.12.0 // indirect

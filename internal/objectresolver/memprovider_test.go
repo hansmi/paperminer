@@ -4,6 +4,8 @@ import (
 	"context"
 	"errors"
 	"testing"
+
+	"github.com/google/go-cmp/cmp"
 )
 
 func validateMemResolver[T any](t *testing.T, r *Resolver[T]) {
@@ -25,4 +27,16 @@ func validateMemResolver[T any](t *testing.T, r *Resolver[T]) {
 		}
 	}
 
+}
+
+func TestMemProviderKind(t *testing.T) {
+	p := newMemProvider(func(id int64, name string) bool {
+		return false
+	})
+
+	want := "memProvider[bool]"
+
+	if diff := cmp.Diff(want, p.kind()); diff != "" {
+		t.Errorf("kind() diff (-want +got):\n%s", diff)
+	}
 }

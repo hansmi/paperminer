@@ -22,7 +22,7 @@ type memProvider[T any] struct {
 var _ provider[struct{}] = (*memProvider[struct{}])(nil)
 
 func (p *memProvider[T]) kind() string {
-	return reflect.TypeOf(*p).Name()
+	return reflect.TypeOf(p).Elem().Name()
 }
 
 func (p *memProvider[T]) set(name string, value T) {

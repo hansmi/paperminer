@@ -1,0 +1,49 @@
+nodes: {
+  name: "bill_total_label"
+  search_areas {
+    top_left {
+      abs { left: { cm: 12 } top: { cm: 10 } }
+    }
+    width { cm: 10 }
+    height { cm: 20 }
+  }
+  line_text: {
+    regex: "(?mi)^\\s*(?:Gross\\s+)?total\\b"
+    bounds_from_match: true
+  }
+}
+
+nodes: {
+  name: "bill_total"
+  search_areas {
+    top_left {
+      rel {
+        node: "bill_total_label"
+        feature: TOP_LEFT
+        offset: { width { cm: -0.1 } height { cm: -0.1 } }
+      }
+    }
+    width { cm: 8 }
+    height { cm: 1 }
+  }
+  line_text: {
+    regex:
+      "(?mi)(?:^|\\s|\\b)"
+      "(?P<currency>\\p{Sc}+)?\\s*"
+      "(?P<value>\\d{1,12}(?:[,\\.]\\d\\d)?)\\s*$"
+  }
+}
+
+nodes: {
+  name: "correspondent"
+  search_areas {
+    top_left {
+      abs { left: { cm: 1 } top: { cm: 1 } }
+    }
+    width { cm: 8 }
+    height { cm: 2 }
+  }
+  line_text: { regex: "(?mi)^\\s*Acme\\s+Lawn\\b" }
+}
+
+# vim: set sw=2 sts=2 et :

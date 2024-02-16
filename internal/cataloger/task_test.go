@@ -70,7 +70,7 @@ func (c *fakeTaskClient) GetDocumentMetadata(context.Context, int64) (*plclient.
 	return &c.metadata, nil, nil
 }
 
-func TestloadTask(t *testing.T) {
+func TestLoadTask(t *testing.T) {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Minute)
 	t.Cleanup(cancel)
 

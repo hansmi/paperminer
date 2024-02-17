@@ -131,7 +131,7 @@ func (p *Program) setupWorkflows(ctx context.Context) ([]workflow.Workflow, erro
 
 func (p *Program) notifyPostConsume() {
 	for _, wf := range p.workflows {
-		if nr := wf.(workflow.NotificationReceiver); nr != nil {
+		if nr, ok := wf.(workflow.NotificationReceiver); ok && nr != nil {
 			nr.NotifyPostConsume()
 		}
 	}

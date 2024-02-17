@@ -105,8 +105,8 @@ func (p *Program) setupMux() {
 			Registry: p.metricsRegistry,
 		}))
 
-	p.mux.Post("/notify/post-consumption", func(w http.ResponseWriter, r *http.Request) {
-		p.notifyPostConsumption()
+	p.mux.Post("/notify/post-consume", func(w http.ResponseWriter, r *http.Request) {
+		p.notifyPostConsume()
 		w.WriteHeader(http.StatusNoContent)
 	})
 }
@@ -129,10 +129,10 @@ func (p *Program) setupWorkflows(ctx context.Context) ([]workflow.Workflow, erro
 	return result, nil
 }
 
-func (p *Program) notifyPostConsumption() {
+func (p *Program) notifyPostConsume() {
 	for _, wf := range p.workflows {
 		if nr := wf.(workflow.NotificationReceiver); nr != nil {
-			nr.NotifyPostConsumption()
+			nr.NotifyPostConsume()
 		}
 	}
 }

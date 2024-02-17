@@ -39,5 +39,5 @@ type Workflow interface {
 }
 
 type NotificationReceiver interface {
-	NotifyPostConsumption()
+	NotifyPostConsume()
 }

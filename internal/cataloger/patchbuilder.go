@@ -15,7 +15,7 @@ import (
 
 func normalizeIDs(ids []int64) []int64 {
 	if len(ids) == 0 {
-		return nil
+		return []int64{}
 	}
 
 	ids = slices.Clone(ids)

@@ -7,7 +7,6 @@ import (
 	"time"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/google/go-cmp/cmp/cmpopts"
 	plclient "github.com/hansmi/paperhooks/pkg/client"
 	"github.com/hansmi/paperminer"
 	"github.com/hansmi/paperminer/internal/objectresolver"
@@ -31,7 +30,10 @@ func TestPatchBuilder(t *testing.T) {
 		facts *paperminer.Facts
 		want  map[string]any
 	}{
-		{name: "empty"},
+		{
+			name: "empty",
+			want: map[string]any{},
+		},
 		{
 			name: "unmodified",
 			doc: plclient.Document{
@@ -42,6 +44,7 @@ func TestPatchBuilder(t *testing.T) {
 				StoragePath:   plclient.Int64(3),
 				Tags:          []int64{7, 8, 9, 1, 2, 3},
 			},
+			want: map[string]any{},
 		},
 		{
 			name: "created and title",
@@ -67,6 +70,7 @@ func TestPatchBuilder(t *testing.T) {
 				Title:   ref.Ref("hello"),
 				Created: ref.Ref(time.Date(2020, time.March, 4, 5, 6, 7, 0, time.UTC)),
 			},
+			want: map[string]any{},
 		},
 		{
 			name: "objects",
@@ -112,6 +116,18 @@ func TestPatchBuilder(t *testing.T) {
 				"tags": []int64{0, firstTag.ID, math.MaxInt64},
 			},
 		},
+		{
+			name: "tags set to empty",
+			doc: plclient.Document{
+				Tags: []int64{firstTag.ID, secondTag.ID},
+			},
+			facts: &paperminer.Facts{
+				UnsetTags: []string{firstTag.Name, secondTag.Name},
+			},
+			want: map[string]any{
+				"tags": []int64{},
+			},
+		},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			ctx, cancel := context.WithTimeout(context.Background(), time.Minute)
@@ -123,7 +139,7 @@ func TestPatchBuilder(t *testing.T) {
 				pb.setFacts(ctx, tc.facts)
 			}
 
-			if diff := cmp.Diff(tc.want, pb.build().AsMap(), cmpopts.EquateEmpty(), testutil.CmpSortInt64Slices); diff != "" {
+			if diff := cmp.Diff(tc.want, pb.build().AsMap(), testutil.CmpSortInt64Slices); diff != "" {
 				t.Errorf("Patch diff (-want +got):\n%s", diff)
 			}
 		})

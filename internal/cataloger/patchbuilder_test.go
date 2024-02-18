@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/google/go-cmp/cmp"
+	"github.com/google/go-cmp/cmp/cmpopts"
 	plclient "github.com/hansmi/paperhooks/pkg/client"
 	"github.com/hansmi/paperminer"
 	"github.com/hansmi/paperminer/internal/objectresolver"
@@ -25,10 +26,11 @@ func TestPatchBuilder(t *testing.T) {
 	firstStoragePath := objectresolver.MustGetOrCreateByName(t, resolvers.StoragePath, "first storagepath")
 
 	for _, tc := range []struct {
-		name  string
-		doc   plclient.Document
-		facts *paperminer.Facts
-		want  map[string]any
+		name         string
+		doc          plclient.Document
+		facts        *paperminer.Facts
+		want         map[string]any
+		wantFactsErr error
 	}{
 		{
 			name: "empty",
@@ -128,6 +130,14 @@ func TestPatchBuilder(t *testing.T) {
 				"tags": []int64{},
 			},
 		},
+		{
+			name: "unset unknown tag",
+			facts: &paperminer.Facts{
+				UnsetTags: []string{"unknown tag 1234"},
+			},
+			wantFactsErr: objectresolver.ErrNotFound,
+			want:         map[string]any{},
+		},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			ctx, cancel := context.WithTimeout(context.Background(), time.Minute)
@@ -136,7 +146,11 @@ func TestPatchBuilder(t *testing.T) {
 			pb := newPatchBuilder(resolvers, &tc.doc)
 
 			if tc.facts != nil {
-				pb.setFacts(ctx, tc.facts)
+				err := pb.setFacts(ctx, tc.facts)
+
+				if diff := cmp.Diff(tc.wantFactsErr, err, cmpopts.EquateErrors()); diff != "" {
+					t.Errorf("setFacts() error diff (-want +got):\n%s", diff)
+				}
 			}
 
 			if diff := cmp.Diff(tc.want, pb.build().AsMap(), testutil.CmpSortInt64Slices); diff != "" {

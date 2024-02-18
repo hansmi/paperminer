@@ -108,17 +108,18 @@ func (b *patchBuilder) setFacts(ctx context.Context, facts *paperminer.Facts) er
 	}
 
 	for _, i := range []struct {
-		names []string
-		fn    func(int64)
+		names   []string
+		resolve func(context.Context, string) (plclient.Tag, error)
+		apply   func(int64)
 	}{
-		{facts.SetTags, b.setTag},
-		{facts.UnsetTags, b.unsetTag},
+		{facts.SetTags, b.resolvers.Tag.GetOrCreateByName, b.setTag},
+		{facts.UnsetTags, b.resolvers.Tag.GetByName, b.unsetTag},
 	} {
 		for _, name := range i.names {
-			if tag, err := b.resolvers.Tag.GetOrCreateByName(ctx, name); err != nil {
+			if tag, err := i.resolve(ctx, name); err != nil {
 				return fmt.Errorf("tag: %w", err)
 			} else {
-				i.fn(tag.ID)
+				i.apply(tag.ID)
 			}
 		}
 	}

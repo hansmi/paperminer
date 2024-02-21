@@ -15,6 +15,8 @@ import (
 	"go.uber.org/zap"
 )
 
+var errDocumentTooLarge = errors.New("document too large")
+
 type updaterClient interface {
 	document.VariantFactsClient
 
@@ -68,7 +70,9 @@ func newUpdater(ctx context.Context, opts updaterOptions) (*updater, error) {
 	return u, nil
 }
 
-func (u *updater) checkSize() (err error) {
+func (u *updater) checkSize() error {
+	var err error
+
 	check := func(name string, size int64) {
 		if size > u.FileSizeMax {
 			multierr.AppendInto(&err, fmt.Errorf("%s file size of %d is larger than %d bytes",
@@ -82,7 +86,11 @@ func (u *updater) checkSize() (err error) {
 		check("archive", u.Metadata.ArchiveSize)
 	}
 
-	return
+	if err != nil {
+		return fmt.Errorf("%w: %v", errDocumentTooLarge, err)
+	}
+
+	return nil
 }
 
 func (u *updater) getFacts(ctx context.Context, hasArchiveVersion bool) (*paperminer.Facts, error) {
@@ -174,7 +182,8 @@ func (u *updater) markFailed(ctx context.Context, updateErr error) error {
 func isPermanentError(err error) bool {
 	var clientReqErr *plclient.RequestError
 
-	return errors.As(err, &clientReqErr) && clientReqErr.StatusCode == http.StatusNotFound
+	return (errors.Is(err, errDocumentTooLarge) ||
+		(errors.As(err, &clientReqErr) && clientReqErr.StatusCode == http.StatusNotFound))
 }
 
 func (u *updater) Do(ctx context.Context, lastRetry bool) error {

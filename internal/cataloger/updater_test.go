@@ -19,6 +19,8 @@ import (
 )
 
 func TestUpdaterCheckSize(t *testing.T) {
+	const fileSizeMax = 1024 * 1024
+
 	for _, tc := range []struct {
 		name     string
 		metadata plclient.DocumentMetadata
@@ -30,23 +32,23 @@ func TestUpdaterCheckSize(t *testing.T) {
 		{
 			name: "original too large",
 			metadata: plclient.DocumentMetadata{
-				OriginalSize: 3 * 1024 * 1024,
+				OriginalSize: 3 * fileSizeMax,
 			},
-			wantErr: cmpopts.AnyError,
+			wantErr: errDocumentTooLarge,
 		},
 		{
 			name: "archive too large",
 			metadata: plclient.DocumentMetadata{
 				HasArchiveVersion: true,
-				ArchiveSize:       100 * 1024 * 1024,
+				ArchiveSize:       100 * fileSizeMax,
 			},
-			wantErr: cmpopts.AnyError,
+			wantErr: errDocumentTooLarge,
 		},
 		{
 			name: "missing archive too large",
 			metadata: plclient.DocumentMetadata{
 				HasArchiveVersion: false,
-				ArchiveSize:       100 * 1024 * 1024,
+				ArchiveSize:       100 * fileSizeMax,
 			},
 		},
 	} {
@@ -58,7 +60,7 @@ func TestUpdaterCheckSize(t *testing.T) {
 				Logger:      zaptest.NewLogger(t),
 				Resolvers:   objectresolver.NewMemObjectResolvers(),
 				Metadata:    &tc.metadata,
-				FileSizeMax: 1024 * 1024,
+				FileSizeMax: fileSizeMax,
 			})
 
 			if err != nil {
@@ -93,6 +95,8 @@ func (c *fakeUpdaterClient) PatchDocument(_ context.Context, _ int64, fields *pl
 }
 
 func TestUpdater(t *testing.T) {
+	const fileSizeMax = 1024 * 1024
+
 	errTest := errors.New("test")
 
 	resolvers := objectresolver.NewMemObjectResolvers()
@@ -149,6 +153,17 @@ func TestUpdater(t *testing.T) {
 				"tags":          []int64{customTag.ID},
 			}},
 		},
+		{
+			name: "file size too large",
+			metadata: plclient.DocumentMetadata{
+				OriginalSize:      fileSizeMax,
+				HasArchiveVersion: true,
+				ArchiveSize:       fileSizeMax + 1,
+			},
+			wantPatches: []map[string]any{{
+				"tags": []int64{failedTag.ID},
+			}},
+		},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			ctx, cancel := context.WithTimeout(context.Background(), time.Minute)
@@ -170,6 +185,7 @@ func TestUpdater(t *testing.T) {
 				Metadata:         &tc.metadata,
 				TodoTagName:      todoTag.Name,
 				FailedTagName:    failedTag.Name,
+				FileSizeMax:      fileSizeMax,
 				ExtractFileFacts: tc.extract,
 				CheckModified: func(context.Context) error {
 					return nil

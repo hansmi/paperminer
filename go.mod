@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/alecthomas/kingpin/v2 v2.4.0
-	github.com/go-chi/chi/v5 v5.0.11
+	github.com/go-chi/chi/v5 v5.0.12
 	github.com/google/go-cmp v0.6.0
 	github.com/hansmi/aurum v0.0.1
 	github.com/hansmi/dossier v0.0.0-20231226220827-6cb7315cb77e

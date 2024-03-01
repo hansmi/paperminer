@@ -11,7 +11,7 @@ require (
 	github.com/hansmi/paperhooks v0.0.8
 	github.com/hansmi/staticplug v0.0.0-20240105232241-9c105f17be16
 	github.com/jonboulle/clockwork v0.4.0
-	github.com/josephburnett/jd v1.7.1
+	github.com/josephburnett/jd v1.8.1
 	github.com/prometheus/client_golang v1.18.0
 	github.com/prometheus/common v0.47.0
 	github.com/sourcegraph/conc v0.3.0

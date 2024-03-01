@@ -38,8 +38,8 @@ github.com/hansmi/dossier v0.0.0-20231226220827-6cb7315cb77e h1:NRBt7bkU4L3k0zDl
 github.com/hansmi/dossier v0.0.0-20231226220827-6cb7315cb77e/go.mod h1:8Wq0dTYbfnPmQL002XRtCqtEXmD29umuAslBBSfCLus=
 github.com/hansmi/paperhooks v0.0.8 h1:EJAXJLrpLTBy0QGAPh5BF64YhMSw/WmrxhPtmE3ELf8=
 github.com/hansmi/paperhooks v0.0.8/go.mod h1:j3a/su6lWpuP2UzHnwaZ1rhmdD0P11HoecJJY/fO72w=
-github.com/hansmi/staticplug v0.0.0-20240105232241-9c105f17be16 h1:chGTzxO7EMEmY5xj/QG7G6XOpZSU8uCls4RdIRfYWxw=
-github.com/hansmi/staticplug v0.0.0-20240105232241-9c105f17be16/go.mod h1:1AU34xzt/IHE9o39mEOsUyhugTxrc1akcAoLI6cq9Jo=
+github.com/hansmi/staticplug v0.0.1 h1:EfXPSgBKYxREUFcsr3w/I6AieCQR+w95GNnkNuT+2WA=
+github.com/hansmi/staticplug v0.0.1/go.mod h1:1AU34xzt/IHE9o39mEOsUyhugTxrc1akcAoLI6cq9Jo=
 github.com/hashicorp/golang-lru/v2 v2.0.7 h1:a+bsQ5rvGLjzHuww6tVxozPZFVghXaHOwFs4luLUK2k=
 github.com/hashicorp/golang-lru/v2 v2.0.7/go.mod h1:QeFd9opnmA6QUJc5vARoKUSoFhyfM2/ZepoAG6RGpeM=
 github.com/jarcoal/httpmock v1.3.1 h1:iUx3whfZWVf3jT01hQTO/Eo5sAYtB2/rqaUuOtpInww=

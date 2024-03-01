@@ -9,7 +9,7 @@ require (
 	github.com/hansmi/aurum v0.0.1
 	github.com/hansmi/dossier v0.0.0-20231226220827-6cb7315cb77e
 	github.com/hansmi/paperhooks v0.0.8
-	github.com/hansmi/staticplug v0.0.0-20240105232241-9c105f17be16
+	github.com/hansmi/staticplug v0.0.1
 	github.com/jonboulle/clockwork v0.4.0
 	github.com/josephburnett/jd v1.8.1
 	github.com/prometheus/client_golang v1.18.0

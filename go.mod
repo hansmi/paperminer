@@ -12,8 +12,8 @@ require (
 	github.com/hansmi/staticplug v0.0.1
 	github.com/jonboulle/clockwork v0.4.0
 	github.com/josephburnett/jd v1.8.1
-	github.com/prometheus/client_golang v1.18.0
-	github.com/prometheus/common v0.47.0
+	github.com/prometheus/client_golang v1.19.0
+	github.com/prometheus/common v0.49.0
 	github.com/sourcegraph/conc v0.3.0
 	github.com/timshannon/bolthold v0.0.0-20231129192944-dca5178aa629
 	go.etcd.io/bbolt v1.3.9
@@ -40,11 +40,11 @@ require (
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mitchellh/go-wordwrap v1.0.1 // indirect
-	github.com/prometheus/client_model v0.5.0 // indirect
+	github.com/prometheus/client_model v0.6.0 // indirect
 	github.com/prometheus/procfs v0.12.0 // indirect
 	github.com/protocolbuffers/txtpbfmt v0.0.0-20231025115547-084445ff1adf // indirect
 	github.com/xhit/go-str2duration/v2 v2.1.0 // indirect
-	golang.org/x/net v0.20.0 // indirect
+	golang.org/x/net v0.21.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 	google.golang.org/protobuf v1.32.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect

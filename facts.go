@@ -1,6 +1,7 @@
 package paperminer
 
 import (
+	"encoding/json"
 	"time"
 )
 
@@ -17,6 +18,15 @@ type Facts struct {
 	UnsetTags []string `json:"unset_tags,omitempty"`
 
 	// TODO: Support custom fields
+}
+
+func (f *Facts) String() string {
+	buf, err := json.Marshal(f)
+	if err != nil {
+		return err.Error()
+	}
+
+	return string(buf)
 }
 
 // IsEmpty returns whether at least one fact property has been set.

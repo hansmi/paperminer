@@ -21,5 +21,5 @@ func (s FactsSlice) Best() (*paperminer.Facts, error) {
 	// multiple candidates. Maybe over all document variants (archived,
 	// original). Facts can also be given a number as a "relative weight".
 
-	return nil, fmt.Errorf("unable to select among %d facts", len(s))
+	return nil, fmt.Errorf("unable to select among %d facts: %v", len(s), s)
 }

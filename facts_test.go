@@ -33,6 +33,10 @@ func TestFactsIsEmpty(t *testing.T) {
 		},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
+			if got := tc.value.String(); got == "" {
+				t.Error("String() returned empty value")
+			}
+
 			if diff := cmp.Diff(tc.want, tc.value.IsEmpty()); diff != "" {
 				t.Errorf("IsEmpty() diff (-want +got):\n%s", diff)
 			}

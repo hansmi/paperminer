@@ -15,7 +15,7 @@ require (
 	github.com/jonboulle/clockwork v0.4.0
 	github.com/josephburnett/jd v1.8.1
 	github.com/prometheus/client_golang v1.19.0
-	github.com/prometheus/common v0.49.0
+	github.com/prometheus/common v0.51.1
 	github.com/sourcegraph/conc v0.3.0
 	github.com/timshannon/bolthold v0.0.0-20231129192944-dca5178aa629
 	go.etcd.io/bbolt v1.3.9

@@ -104,9 +104,10 @@ func TestObjectResolvers(t *testing.T) {
 		{
 			name: "empty",
 			wantDocumentTypeFields: map[string]any{
-				"name":            "abc",
-				"owner":           plclient.Int64(123),
-				"set_permissions": &client.ObjectPermissions{},
+				"name":               "abc",
+				"matching_algorithm": client.MatchNone,
+				"owner":              plclient.Int64(123),
+				"set_permissions":    &client.ObjectPermissions{},
 			},
 		},
 		{
@@ -124,8 +125,9 @@ func TestObjectResolvers(t *testing.T) {
 				},
 			},
 			wantDocumentTypeFields: map[string]any{
-				"name":  "abc",
-				"owner": plclient.Int64(123),
+				"name":               "abc",
+				"matching_algorithm": client.MatchNone,
+				"owner":              plclient.Int64(123),
 				"set_permissions": &client.ObjectPermissions{
 					Change: client.ObjectPermissionPrincipals{
 						Groups: []int64{19092},

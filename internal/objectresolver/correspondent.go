@@ -20,7 +20,9 @@ func (correspondentProvider) kind() string {
 }
 
 func (p *correspondentProvider) create(ctx context.Context, name string) error {
-	fields := plclient.NewCorrespondentFields().SetName(name)
+	fields := plclient.NewCorrespondentFields().
+		SetName(name).
+		SetMatchingAlgorithm(plclient.MatchNone)
 
 	p.PermissionOptions.apply(fields)
 

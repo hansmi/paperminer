@@ -20,7 +20,9 @@ func (tagProvider) kind() string {
 }
 
 func (p *tagProvider) create(ctx context.Context, name string) error {
-	fields := plclient.NewTagFields().SetName(name)
+	fields := plclient.NewTagFields().
+		SetName(name).
+		SetMatchingAlgorithm(plclient.MatchNone)
 
 	p.PermissionOptions.apply(fields)
 

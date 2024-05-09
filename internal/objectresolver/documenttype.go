@@ -20,7 +20,9 @@ func (documentTypeProvider) kind() string {
 }
 
 func (p *documentTypeProvider) create(ctx context.Context, name string) error {
-	fields := plclient.NewDocumentTypeFields().SetName(name)
+	fields := plclient.NewDocumentTypeFields().
+		SetName(name).
+		SetMatchingAlgorithm(plclient.MatchNone)
 
 	p.PermissionOptions.apply(fields)
 

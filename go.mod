@@ -6,7 +6,7 @@ toolchain go1.21.5
 
 require (
 	github.com/alecthomas/kingpin/v2 v2.4.0
-	github.com/go-chi/chi/v5 v5.0.12
+	github.com/go-chi/chi/v5 v5.1.0
 	github.com/google/go-cmp v0.6.0
 	github.com/hansmi/aurum v0.0.1
 	github.com/hansmi/dossier v0.0.1

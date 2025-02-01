@@ -9,7 +9,7 @@ require (
 	github.com/google/go-cmp v0.6.0
 	github.com/hansmi/aurum v0.0.2
 	github.com/hansmi/dossier v0.0.3
-	github.com/hansmi/paperhooks v0.0.11
+	github.com/hansmi/paperhooks v0.0.12
 	github.com/hansmi/staticplug v0.0.2
 	github.com/jonboulle/clockwork v0.5.0
 	github.com/josephburnett/jd v1.9.1
@@ -34,7 +34,7 @@ require (
 	github.com/gabriel-vasile/mimetype v1.4.5 // indirect
 	github.com/go-openapi/jsonpointer v0.20.3 // indirect
 	github.com/go-openapi/swag v0.22.10 // indirect
-	github.com/go-resty/resty/v2 v2.12.0 // indirect
+	github.com/go-resty/resty/v2 v2.16.4 // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/hashicorp/golang-lru/v2 v2.0.7 // indirect
@@ -49,7 +49,7 @@ require (
 	github.com/protocolbuffers/txtpbfmt v0.0.0-20240116145035-ef3ab179eed6 // indirect
 	github.com/xhit/go-str2duration/v2 v2.1.0 // indirect
 	golang.org/x/net v0.33.0 // indirect
-	golang.org/x/oauth2 v0.21.0 // indirect
+	golang.org/x/oauth2 v0.25.0 // indirect
 	golang.org/x/text v0.21.0 // indirect
 	google.golang.org/protobuf v1.35.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect

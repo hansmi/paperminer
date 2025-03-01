@@ -12,7 +12,7 @@ require (
 	github.com/hansmi/paperhooks v0.0.12
 	github.com/hansmi/staticplug v0.0.2
 	github.com/jonboulle/clockwork v0.5.0
-	github.com/josephburnett/jd v1.9.1
+	github.com/josephburnett/jd v1.9.2
 	github.com/prometheus/client_golang v1.20.5
 	github.com/sourcegraph/conc v0.3.0
 	github.com/timshannon/bolthold v0.0.0-20231129192944-dca5178aa629

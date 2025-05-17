@@ -1,6 +1,7 @@
 module github.com/hansmi/paperminer
 
-go 1.21
+go 1.23.0
+
 toolchain go1.24.1
 
 require (
@@ -21,7 +22,7 @@ require (
 	go.uber.org/zap v1.27.0
 	golang.org/x/exp v0.0.0-20240719175910-8a7402abbf56
 	golang.org/x/sync v0.13.0
-	golang.org/x/sys v0.32.0
+	golang.org/x/sys v0.33.0
 )
 
 require (

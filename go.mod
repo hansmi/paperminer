@@ -19,7 +19,7 @@ require (
 	github.com/timshannon/bolthold v0.0.0-20231129192944-dca5178aa629
 	go.etcd.io/bbolt v1.4.3
 	go.uber.org/multierr v1.11.0
-	go.uber.org/zap v1.27.0
+	go.uber.org/zap v1.27.1
 	golang.org/x/exp v0.0.0-20240719175910-8a7402abbf56
 	golang.org/x/sync v0.18.0
 	golang.org/x/sys v0.38.0

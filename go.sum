@@ -17,8 +17,8 @@ github.com/dhconnelly/rtreego v1.2.0 h1:LWhGPhw+iGuhg8hmHA/H8WV60qKtzecOjii0FMev
 github.com/dhconnelly/rtreego v1.2.0/go.mod h1:SDozu0Fjy17XH1svEXJgdYq8Tah6Zjfa/4Q33Z80+KM=
 github.com/gabriel-vasile/mimetype v1.4.11 h1:AQvxbp830wPhHTqc1u7nzoLT+ZFxGY7emj5DR5DYFik=
 github.com/gabriel-vasile/mimetype v1.4.11/go.mod h1:d+9Oxyo1wTzWdyVUPMmXFvp4F9tea18J8ufA774AB3s=
-github.com/go-chi/chi/v5 v5.2.3 h1:WQIt9uxdsAbgIYgid+BpYc+liqQZGMHRaUwp0JUcvdE=
-github.com/go-chi/chi/v5 v5.2.3/go.mod h1:L2yAIGWB3H+phAw1NxKwWM+7eUH/lU8pOMm5hHcoops=
+github.com/go-chi/chi/v5 v5.2.4 h1:WtFKPHwlywe8Srng8j2BhOD9312j9cGUxG1SP4V2cR4=
+github.com/go-chi/chi/v5 v5.2.4/go.mod h1:X7Gx4mteadT3eDOMTsXzmI4/rwUpOwBHLpAfupzFJP0=
 github.com/go-openapi/jsonpointer v0.20.3 h1:jykzYWS/kyGtsHfRt6aV8JTB9pcQAXPIA7qlZ5aRlyk=
 github.com/go-openapi/jsonpointer v0.20.3/go.mod h1:c7l0rjoouAuIxCm8v/JWKRgMjDG/+/7UBWsXMrv6PsM=
 github.com/go-openapi/swag v0.22.10 h1:4y86NVn7Z2yYd6pfS4Z+Nyh3aAUL3Nul+LMbhFKy0gA=

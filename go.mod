@@ -20,7 +20,7 @@ require (
 	go.uber.org/zap v1.27.1
 	golang.org/x/exp v0.0.0-20251113190631-e25ba8c21ef6
 	golang.org/x/sync v0.20.0
-	golang.org/x/sys v0.41.0
+	golang.org/x/sys v0.42.0
 )
 
 require (

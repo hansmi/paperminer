@@ -4,7 +4,7 @@ go 1.25.0
 
 require (
 	github.com/alecthomas/kingpin/v2 v2.4.0
-	github.com/go-chi/chi/v5 v5.2.5
+	github.com/go-chi/chi/v5 v5.3.0
 	github.com/google/go-cmp v0.7.0
 	github.com/hansmi/aurum v0.0.3
 	github.com/hansmi/dossier v0.0.5

@@ -7,7 +7,7 @@ require (
 	github.com/go-chi/chi/v5 v5.3.0
 	github.com/google/go-cmp v0.7.0
 	github.com/hansmi/aurum v0.0.3
-	github.com/hansmi/dossier v0.0.5
+	github.com/hansmi/dossier v0.0.6
 	github.com/hansmi/paperhooks v0.0.15
 	github.com/hansmi/staticplug v0.0.2
 	github.com/jonboulle/clockwork v0.5.0
@@ -30,7 +30,7 @@ require (
 	github.com/cenkalti/backoff/v4 v4.3.0 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/dhconnelly/rtreego v1.2.0 // indirect
-	github.com/gabriel-vasile/mimetype v1.4.11 // indirect
+	github.com/gabriel-vasile/mimetype v1.4.13 // indirect
 	github.com/go-openapi/jsonpointer v0.20.3 // indirect
 	github.com/go-openapi/swag v0.22.10 // indirect
 	github.com/go-resty/resty/v2 v2.16.5 // indirect
@@ -47,12 +47,12 @@ require (
 	github.com/protocolbuffers/txtpbfmt v0.0.0-20251016062345-16587c79cd91 // indirect
 	github.com/xhit/go-str2duration/v2 v2.1.0 // indirect
 	go.yaml.in/yaml/v2 v2.4.2 // indirect
-	golang.org/x/mod v0.30.0 // indirect
-	golang.org/x/net v0.47.0 // indirect
+	golang.org/x/mod v0.35.0 // indirect
+	golang.org/x/net v0.55.0 // indirect
 	golang.org/x/oauth2 v0.32.0 // indirect
-	golang.org/x/text v0.31.0 // indirect
-	golang.org/x/tools v0.39.0 // indirect
-	google.golang.org/protobuf v1.36.10 // indirect
+	golang.org/x/text v0.37.0 // indirect
+	golang.org/x/tools v0.44.0 // indirect
+	google.golang.org/protobuf v1.36.11 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
